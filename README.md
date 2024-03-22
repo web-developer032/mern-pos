@@ -1,13 +1,4 @@
-# mern-stack-pos-application
+A Point sale made in MERN Stack copied from this Repo
 
-Hi, this project is built using the MERN(MongoDB, Express.js, React.js, Node.js) Stack. Also included are popular and important technologies such as Ant Design, Tailwind CSS and Redux-Toolkit.
-
-You can reach the live link of the project from the link below.
-
-Link : https://ssa-pos-application.onrender.com
-
-You can login with the following username and password without registration.
-
-username : admin@admin.com
-
-password : 12345
+thanks to the Owner
+<https://github.com/sinansaricayir/mern-stack-pos-application?tab=readme-ov-file>

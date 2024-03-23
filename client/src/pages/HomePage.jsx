@@ -4,6 +4,7 @@ import Categories from "../components/categories/Categories";
 import Header from "../components/header/Header";
 import Products from "../components/products/Products";
 import { Spin } from "antd";
+import { useAllCategoriesQuery } from "../services/categories";
 
 function HomePage() {
   const [categories, setCategories] = useState();
@@ -11,12 +12,17 @@ function HomePage() {
   const [filtered, setFiltered] = useState([]);
   const [searched, setSearched] = useState("");
 
+  const {
+    isLoading: allCategoriesLoading,
+    data: allCategoriesData,
+    error: allCategoriesError,
+  } = useAllCategoriesQuery();
+  console.log("allCategoriesData: ", allCategoriesData);
+
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/categories/get-all"
-        );
+        const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all");
         const data = await res.json();
         setCategories(data);
       } catch (error) {

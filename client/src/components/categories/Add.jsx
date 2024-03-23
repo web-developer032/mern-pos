@@ -1,15 +1,14 @@
 import { Button, Form, Input, Modal, message } from "antd";
+import { useAddCategoryMutation } from "../../services/categories";
 
 const Add = ({ isAddModalOpen, setIsAddModalOpen, categories, setCategories }) => {
   const [form] = Form.useForm();
+  const [addCategory] = useAddCategoryMutation();
 
-  const onFinish = (value) => {
-    try {
-      fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/add-category", {
-        method: "POST",
-        body: JSON.stringify(value),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-      });
+  const onFinish = async (value) => {
+    const { data, error } = await addCategory(value);
+
+    if (data) {
       message.success("Category added successfully.");
       setIsAddModalOpen(false);
       form.resetFields();
@@ -20,8 +19,8 @@ const Add = ({ isAddModalOpen, setIsAddModalOpen, categories, setCategories }) =
           title: value.title,
         },
       ]);
-    } catch (error) {
-      console.log(error);
+    } else {
+      message.error("Something went wrong!");
     }
   };
 

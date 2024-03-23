@@ -34,7 +34,7 @@ const Add = ({ isAddModalOpen, setIsAddModalOpen, categories, setCategories }) =
     >
       <Form layout="vertical" onFinish={onFinish} form={form}>
         <Form.Item
-          label={"Category Disgusting"}
+          label={"Category Name"}
           name="title"
           rules={[
             {
@@ -43,7 +43,7 @@ const Add = ({ isAddModalOpen, setIsAddModalOpen, categories, setCategories }) =
             },
           ]}
         >
-          <Input placeholder="enter category name" />
+          <Input placeholder="Enter category name" />
         </Form.Item>
         <Form.Item className="flex justify-end mb-0">
           <Button type="primary" htmlType="submit">

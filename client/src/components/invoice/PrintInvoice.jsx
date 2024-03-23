@@ -5,6 +5,8 @@ import { useReactToPrint } from "react-to-print";
 const PrintInvoice = ({ isModalOpen, setIsModalOpen, printData }) => {
   const compnentRef = useRef();
 
+  console.log("printData: ", printData);
+
   const handlePrint = useReactToPrint({
     content: () => compnentRef.current,
   });
@@ -120,7 +122,7 @@ const PrintInvoice = ({ isModalOpen, setIsModalOpen, printData }) => {
                       </span>
                     </th>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <th className="text-right sm:table-cell hidden" colSpan={4} scope="row">
                       <span className="font-normal text-slate-700">VAT</span>
                     </th>
@@ -128,9 +130,9 @@ const PrintInvoice = ({ isModalOpen, setIsModalOpen, printData }) => {
                       <p className="font-normal text-slate-700">VAT</p>
                     </th>
                     <th className="text-right">
-                      <span className="font-normal text-red-400">+{printData.tax} Rs</span>
+                      <span className="font-normal text-red-400">+{printData.tax}Rs</span>
                     </th>
-                  </tr>
+                  </tr> */}
                   <tr>
                     <th className="text-right sm:table-cell hidden" colSpan={4} scope="row">
                       <span className="font-bold text-slate-700">Grand total</span>
@@ -140,7 +142,7 @@ const PrintInvoice = ({ isModalOpen, setIsModalOpen, printData }) => {
                     </th>
                     <th className="text-right">
                       <span className="font-normal text-slate-700">
-                        {printData.totalAmount.toFixed(2)} Rs
+                        {printData.totalAmount?.toFixed(2)} Rs
                       </span>
                     </th>
                   </tr>
@@ -150,15 +152,7 @@ const PrintInvoice = ({ isModalOpen, setIsModalOpen, printData }) => {
 
             <div className="py-6">
               <div className="border-t pt-9 border-slate-200">
-                <p className="text-sm font-light text-slate-700">
-                  Payment terms are 14 days. Late Payment of Unpackaged Debts Act 0000 Accordingly,
-                  if the debts of freelancers are not paid after this period, 00.00 that they have
-                  the right to demand a late fee and at this point this fee is additional Please
-                  note that a new invoice will be presented. 14 days for revised invoice If not paid
-                  within, additional interest on overdue account plus 8% statutory rate. A total of
-                  8.5% will be applied, including 0.5% Bank of England base. Parties Law They cannot
-                  make contracts outside of its provisions.
-                </p>
+                <p className="text-sm font-light text-slate-700">Thank you for shopping &lang;3</p>
               </div>
             </div>
           </article>

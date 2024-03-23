@@ -71,7 +71,7 @@ const CartTotals = () => {
             <b>Subtotal</b>
             <span>{cart.total.toFixed(2) > 0 ? cart.total.toFixed(2) : 0}Rs</span>
           </div>
-          <div className="flex justify-between p-2">
+          {/* <div className="flex justify-between p-2">
             <b>KDV % {cart.tax}</b>
             <span className="text-red-700">
               {(cart.total * cart.tax) / 100 > 0
@@ -79,15 +79,16 @@ const CartTotals = () => {
                 : 0}
               Rs
             </span>
-          </div>
+          </div> */}
         </div>
         <div className="border-b mt-4">
           <div className="flex justify-between p-2">
             <b className="text-xl text-green-500">Grand total</b>
             <span className="text-xl">
-              {(cart.total + (cart.total * cart.tax) / 100).toFixed(2) > 0
+              {/* {(cart.total + (cart.total * cart.tax) / 100).toFixed(2) > 0
                 ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
-                : 0}
+                : 0} */}
+              {cart.total.toFixed(2) || 0}
               Rs
             </span>
           </div>

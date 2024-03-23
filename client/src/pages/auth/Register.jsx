@@ -98,14 +98,14 @@ const Register = () => {
                 className="w-full"
                 loading={loading}
               >
-                Kaydol
+                Register
               </Button>
             </Form.Item>
           </Form>
           <div className="absolute bottom-10 left-0 w-full flex items-center justify-center">
-            Bir hesabınız var mı?
+            Do you have an account?
             <Link to="/login" className="text-blue-600 inline-block p-2">
-              Şimdi giriş yap
+              Log in now
             </Link>
           </div>
         </div>

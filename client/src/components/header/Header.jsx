@@ -13,7 +13,7 @@ import {
 import { useSelector } from "react-redux";
 import "./index.css";
 
-const Header = ({ setSearched }) => {
+const Header = ({ setSearched = () => {} }) => {
   const cart = useSelector((state) => state.cart);
   const basketNumber = cart.cartItems.length;
   const navigate = useNavigate();

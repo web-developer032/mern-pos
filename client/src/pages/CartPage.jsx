@@ -236,7 +236,7 @@ const CartPage = () => {
               <span>Subtotal</span>
               <span>{cart.total.toFixed(2) > 0 ? cart.total.toFixed(2) : 0}Rs</span>
             </div>
-            <div className="flex justify-between my-2">
+            {/* <div className="flex justify-between my-2">
               <span>KDV %{cart.tax}</span>
               <span className="text-red-600">
                 {(cart.total * cart.tax) / 100 > 0
@@ -244,14 +244,18 @@ const CartPage = () => {
                   : 0}
                 Rs
               </span>
-            </div>
+            </div> */}
             <div className="flex justify-between">
-              <b>Toplam</b>
-              <b>
-                {" "}
+              <b>Total</b>
+              {/* <b>
                 {(cart.total + (cart.total * cart.tax) / 100).toFixed(2) > 0
                   ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
                   : 0}
+                Rs
+              </b> */}
+
+              <b>
+                {cart.total.toFixed(2) || 0}
                 Rs
               </b>
             </div>
@@ -260,7 +264,7 @@ const CartPage = () => {
               type="primary"
               className="mt-4 w-full"
               onClick={() => setIsModalOpen(true)}
-              disabled={cart.cartItems.length > 0 ? false : true}
+              disabled={!cart.cartItems.length}
             >
               Create Order
             </Button>
@@ -290,6 +294,7 @@ const CartPage = () => {
           </Card>
         </div>
       </div>
+
       <CreateInvoice isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );

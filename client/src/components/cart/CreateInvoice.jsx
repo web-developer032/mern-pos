@@ -15,8 +15,9 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
         body: JSON.stringify({
           ...values,
           subTotal: cart?.total?.toFixed(2),
-          tax: ((cart.total * cart.tax) / 100).toFixed(2),
-          totalAmount: (cart.total + (cart.total * cart.tax) / 100).toFixed(2),
+          // tax: ((cart.total * cart.tax) / 100).toFixed(2),
+          // totalAmount: (cart.total + (cart.total * cart.tax) / 100).toFixed(2),
+          totalAmount: cart.total.toFixed(2),
           cartItems: cart.cartItems,
         }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -71,7 +72,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
             <span>Subtotal</span>
             <span>{cart.total.toFixed(2) > 0 ? cart.total.toFixed(2) : 0}Rs</span>
           </div>
-          <div className="flex justify-between my-2">
+          {/* <div className="flex justify-between my-2">
             <span>KDV %{cart.tax}</span>
             <span className="text-red-600">
               {(cart.total * cart.tax) / 100 > 0
@@ -79,14 +80,18 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
                 : 0}
               Rs
             </span>
-          </div>
+          </div> */}
           <div className="flex justify-between">
             <b>Total</b>
-            <b>
-              {" "}
+            {/* <b>
               {(cart.total + (cart.total * cart.tax) / 100).toFixed(2) > 0
                 ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
                 : 0}
+              Rs
+            </b> */}
+
+            <b>
+              {cart.total.toFixed(2) || 0}
               Rs
             </b>
           </div>
